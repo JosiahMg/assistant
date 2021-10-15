@@ -1,5 +1,5 @@
 import config
-from recall import pysparrn_embedding
+from recall import pysparnn_embedding
 from typing import List, Text, Dict, Any
 import numpy as np
 
@@ -11,7 +11,7 @@ class RecallBySparrn:
         :param by_word:
         """
         self.by_word = by_word
-        sent_vec = pysparrn_embedding.PySparrnEmbedding(by_word=by_word, method=method)
+        sent_vec = pysparnn_embedding.PySparnnEmbedding(by_word=by_word, method=method)
         self.qa_dict = sent_vec.qa_dict
         self.vectorizer, self.features_vec, self.q_cuted, self.sparnn_index = sent_vec.build_vector()
 

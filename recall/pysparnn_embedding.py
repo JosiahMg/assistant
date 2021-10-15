@@ -15,7 +15,7 @@ import os
 import pickle
 
 
-class PySparrnEmbedding:
+class PySparnnEmbedding:
     """
     使用pysparrn构造embedding
     """
@@ -34,10 +34,7 @@ class PySparrnEmbedding:
         elif method.lower() == 'fasttext':
             self.vectorizer = fasttext_vectorizer.FastTextVectorizer(by_word, retrain=False)
         elif method.lower() == 'tfidf':
-            if self.by_word:
-                self.vectorizer = TfidfVectorizer(analyzer='char', lowercase=False)
-            else:
-                self.vectorizer = TfidfVectorizer()
+            self.vectorizer = TfidfVectorizer(token_pattern=r"(?u)\b\w+\b")
         else:
             raise NotImplemented
 
@@ -64,5 +61,5 @@ class PySparrnEmbedding:
 
 
 if __name__ == '__main__':
-    sv = PySparrnEmbedding(by_word=False, method='fasttext')
+    sv = PySparnnEmbedding(by_word=False, method='tfidf')
     print(sv.build_vector())
