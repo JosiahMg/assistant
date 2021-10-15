@@ -12,6 +12,7 @@ class PreOriginCorpus:
         :param input_dir: The directory of origin corpus
         :param output_path: The path of output
         """
+        #TODO 原始数据集使用rasa格式的数据
         self.inputs = config.origin_corpus_dir
         self.qa_csv_path = config.merge_qa_csv_path
         self.q_csv_path = config.split_q_path
