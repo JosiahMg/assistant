@@ -34,5 +34,13 @@ epoch = 20
 minCount = 2
 
 # sparrn hyper-parameter
-sparrn_topk = 10
+sparrn_topk = 20
 sparrn_clusters = 10
+
+
+# stopwords
+stopword_path = os.path.join(root_dir,'tokenizers/stopwords/stopword.txt')
+# userdicts
+userdict_path = os.path.join(root_dir,'tokenizers/userdicts/userdict.txt')
+
+inverted_index_path = os.path.join(root_dir, 'corpus/merge_data/inverted_index.json')

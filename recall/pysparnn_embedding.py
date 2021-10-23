@@ -16,10 +16,16 @@ import pickle
 
 
 class PySparnnEmbedding:
+    """使用pysparrn构造embedding
+
+    Raises:
+        NotImplemented: [description]
+
+    Returns:
+        [type]: [description]
     """
-    使用pysparrn构造embedding
-    """
-    def __init__(self, by_word=False, method='tfidf'):
+
+    def __init__(self, by_word=False, max_features=100, method='tfidf'):
 
         self.sparrn_train_data_path = config.merge_qa_json_path  # 训练需要的数据
         self.sparrn_model_path = config.sparrn_embedding_path  # 存储sparrn模型的路径
@@ -27,14 +33,18 @@ class PySparnnEmbedding:
         self.ft_emb_path = config.ft_embedding_path     # 存储fasttext模型的路径
         self.by_word = by_word
         self.method = method
-        self.qa_dict = json.load(open(self.sparrn_train_data_path, 'r', encoding='utf-8'))
+        self.qa_dict = json.load(
+            open(self.sparrn_train_data_path, 'r', encoding='utf-8'))
         self.sparrn_model_path = self.sparrn_model_path + f'.{method}'
         if method.lower() == 'bm25':
-            self.vectorizer = bm25_vectorizer.Bm25Vectorizer()
+            self.vectorizer = bm25_vectorizer.Bm25Vectorizer(
+                max_features=max_features)
         elif method.lower() == 'fasttext':
-            self.vectorizer = fasttext_vectorizer.FastTextVectorizer(by_word, retrain=False)
+            self.vectorizer = fasttext_vectorizer.FastTextVectorizer(
+                max_features=max_features, by_word=by_word)
         elif method.lower() == 'tfidf':
-            self.vectorizer = TfidfVectorizer(token_pattern=r"(?u)\b\w+\b")
+            self.vectorizer = TfidfVectorizer(
+                max_features=max_features, token_pattern=r"(?u)\b\w+\b")
         else:
             raise NotImplemented
 

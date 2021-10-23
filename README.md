@@ -14,3 +14,8 @@ TODO: 原始数据使用RASA格式，需要修改代码
 
 # recall
 召回模块
+
+
+# 使用方法
+- 配置需要
+- 在pre_corpus中执行pre_origin_corpus.py程序

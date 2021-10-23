@@ -31,8 +31,8 @@ class Bm25Vectorizer(CountVectorizer):
             dtype=dtype)
 
         self._tfidf = Bm25Transformer(norm=norm, use_idf=use_idf,
-                                       smooth_idf=smooth_idf,
-                                       sublinear_tf=sublinear_tf)
+                                      smooth_idf=smooth_idf,
+                                      sublinear_tf=sublinear_tf)
 
     # Broadcast the TF-IDF parameters to the underlying transformer instance
     # for easy grid search and repr
@@ -158,7 +158,7 @@ class Bm25Vectorizer(CountVectorizer):
 
 class Bm25Transformer(BaseEstimator, TransformerMixin):
 
-    def __init__(self,k=1.2,b=0.75, norm="l2", use_idf=True, smooth_idf=True,
+    def __init__(self, k=1.2, b=0.75, norm="l2", use_idf=True, smooth_idf=True,
                  sublinear_tf=False):
         self.k = k
         self.b = b
@@ -177,12 +177,12 @@ class Bm25Transformer(BaseEstimator, TransformerMixin):
             a matrix of term/token counts
         """
         X = X.toarray()
-        self.avdl = X.sum()/X.shape[0] #句子的平均长度
+        self.avdl = X.sum()/X.shape[0]  # 句子的平均长度
         # print("原来的fit的数据：\n",X)
 
-        #计算每个词语的tf的值
-        self.tf = X.sum(0)/X.sum()  #[M] #M表示总词语的数量
-        self.tf = self.tf.reshape([1,self.tf.shape[0]]) #[1,M]
+        # 计算每个词语的tf的值
+        self.tf = X.sum(0)/X.sum()  # [M] #M表示总词语的数量
+        self.tf = self.tf.reshape([1, self.tf.shape[0]])  # [1,M]
         # print("tf\n",self.tf)
         ######       原来tfidf的代码  ######
 
@@ -226,10 +226,11 @@ class Bm25Transformer(BaseEstimator, TransformerMixin):
         vectors : sparse matrix, [n_samples, n_features]
         """
         ########### 计算中间项  ###############
-        cur_tf = np.multiply(self.tf, X.toarray()) #[N,M] #N表示数据的条数，M表示总词语的数量
-        norm_lenght = 1 - self.b + self.b*(X.toarray().sum(-1)/self.avdl) #[N] #N表示数据的条数
-        norm_lenght = norm_lenght.reshape([norm_lenght.shape[0],1]) #[N,1]
-        X = (self.k+1)*cur_tf /(cur_tf +self.k*norm_lenght)
+        cur_tf = np.multiply(self.tf, X.toarray())  # [N,M] #N表示数据的条数，M表示总词语的数量
+        norm_lenght = 1 - self.b + self.b * \
+            (X.toarray().sum(-1)/self.avdl)  # [N] #N表示数据的条数
+        norm_lenght = norm_lenght.reshape([norm_lenght.shape[0], 1])  # [N,1]
+        X = (self.k+1)*cur_tf / (cur_tf + self.k*norm_lenght)
         ############# 结算结束  ################
 
         X = check_array(X, accept_sparse='csr', dtype=FLOAT_DTYPES, copy=copy)
@@ -276,11 +277,12 @@ if __name__ == '__main__':
     from sklearn.feature_extraction.text import TfidfVectorizer
     Bm25 = Bm25Vectorizer(norm="l2")
     tfidf = TfidfVectorizer(norm="l2")
-    Bm25.fit(["hello world hello","hello 2","1 w 2 ","da sad 3"])
-    ret = Bm25.transform(["hello ,hello,world","hello","1 w 2"])
-    print("ret:\n",ret.toarray())
+    Bm25.fit(["hello world hello", "hello 2", "1 w 2 ", "da sad 3"])
+    ret = Bm25.transform(["hello ,hello,world", "hello", "1 w 2"])
+    print("ret:\n", ret.toarray())
     print("*"*100)
 
     tfidf.fit(["hello world hello", "hello 2", "1 w 2 ", "da sad 3"])
-    ret = tfidf.transform(["hello ,hello,world","hello,world","hello","1 w 2"])
+    ret = tfidf.transform(
+        ["hello ,hello,world", "hello,world", "hello", "1 w 2"])
     print(ret.toarray())
