@@ -44,3 +44,9 @@ stopword_path = os.path.join(root_dir,'tokenizers/stopwords/stopword.txt')
 userdict_path = os.path.join(root_dir,'tokenizers/userdicts/userdict.txt')
 
 inverted_index_path = os.path.join(root_dir, 'corpus/merge_data/inverted_index.json')
+
+
+# log.conf
+log_conf = os.path.join(root_dir, 'log/log.conf')
+
+
