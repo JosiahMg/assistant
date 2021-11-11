@@ -1,12 +1,13 @@
 import config
 import os
 import pandas as pd
-import jieba
 import json
 from tokenizers import jieba_tokenizer
-import time
+from log import log
 
-ignore_corpus = ['xiaohuangji']
+logger = log.get_assistant_logger('assistant')
+
+processing_corpus = ['ai']
 
 
 class PreOriginCorpus:
@@ -57,12 +58,14 @@ class PreOriginCorpus:
 
         for root, dirs, files in os.walk(self.inputs):
             label = os.path.basename(root)
-            if label in ignore_corpus:
-                print(f'Ignore fold {label}')
+            if label in processing_corpus:
+                logger.info(f'processing_corpus fold {label}')
+            else:
+                logger.info(f'ignore corpus fold {label}')
                 continue
             for file in files:
                 file_path = os.path.join(root, file)
-                print(f'Now processing file {file_path}')
+                logger.info(f'Now processing file {file_path}')
                 # process for  csv
                 df = pd.read_csv(file_path, encoding='utf-8',
                                  sep=',', header=[0])
@@ -71,6 +74,8 @@ class PreOriginCorpus:
                 # 需要重新排序
                 df.reset_index(drop=True, inplace=True)
                 df['label'] = label
+                df['question'] = df['question'].astype(str)
+                df['answer'] = df['answer'].astype(str)
                 df_merge.append(df)
 
                 # process for  json
@@ -85,16 +90,21 @@ class PreOriginCorpus:
                     qa_dict[tokens]['label'] = label
 
         # save csv
-        df_merge = pd.concat(df_merge)
-        df_merge['question'] = df_merge['question'].apply(tokenizer_join_str)
-        df_merge['question'].to_csv(self.q_csv_path, index=False, header=None)
-        df_merge['answer'].to_csv(self.a_csv_path, index=False, header=None)
-        df_merge.to_csv(self.qa_csv_path, index=False, header=[
-                        'question', 'answer', 'label'])
+        if df_merge and qa_dict:
+            df_merge = pd.concat(df_merge)
+            df_merge['question'] = df_merge['question'].apply(tokenizer_join_str)
+            df_merge['question'].to_csv(self.q_csv_path, index=False, header=None)
+            df_merge['answer'].to_csv(self.a_csv_path, index=False, header=None)
+            df_merge.to_csv(self.qa_csv_path, index=False, header=[
+                            'question', 'answer', 'label'])
+            logger.info('Create corpus csv file successfully.')
 
         # save json
-        json.dump(qa_dict, open(self.qa_json_path, mode='w',
-                                encoding='utf-8'), ensure_ascii=False, indent=2)
+            json.dump(qa_dict, open(self.qa_json_path, mode='w',
+                                    encoding='utf-8'), ensure_ascii=False, indent=2)
+            logger.info('Create corpus json file successfully.')
+        else:
+            logger.warning('Corpus was null.')
 
 
 def pre_origin_corpus():

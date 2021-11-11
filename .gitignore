@@ -1,4 +1,5 @@
 corpus
 .idea/
 __pycache__/
-model
+warehouse
+log.log

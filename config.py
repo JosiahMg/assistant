@@ -23,15 +23,15 @@ merge_qa_json_path = os.path.join(root_dir, 'corpus/merge_data/merge_qa.json')
 
 
 # the model of word or phrase embedding by fasttext
-ft_embedding_path = os.path.join(root_dir, 'model/fasttext_embedding')
+ft_embedding_path = os.path.join(root_dir, 'warehouse/fasttext_embedding')
 
 # the model of word or phrase embedding by pysparrn
-sparrn_embedding_path = os.path.join(root_dir, 'model/sparrn_embedding')
+sparrn_embedding_path = os.path.join(root_dir, 'warehouse/sparrn_embedding')
 
 # fasttext train_unsupervised hyper-parameter
-wordNgrams = 1
-epoch = 20
-minCount = 2
+wordNgrams = 3
+epoch = 10
+minCount = 5
 
 # sparrn hyper-parameter
 sparrn_topk = 20
@@ -49,4 +49,10 @@ inverted_index_path = os.path.join(root_dir, 'corpus/merge_data/inverted_index.j
 # log.conf
 log_conf = os.path.join(root_dir, 'log/log.conf')
 
+# math ape210k data
+json_math_test_path = os.path.join(origin_corpus_dir, 'math/ape210k/test.ape.json')
+json_math_train_path = os.path.join(origin_corpus_dir, 'math/ape210k/train.ape.json')
+json_math_valid_path = os.path.join(origin_corpus_dir, 'math/ape210k/valid.ape.json')
 
+# math origin created by ape210k data
+math_ape_path = os.path.join(origin_corpus_dir, 'math/math_ape.csv')

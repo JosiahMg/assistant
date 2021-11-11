@@ -11,12 +11,12 @@ class Logger:
         return logging.getLogger(name)
 
 
-def get_mylogger(name='root'):
+def get_assistant_logger(name='root'):
     logger = Logger()
     logger = logger.get_logger(name)
     return logger
 
 
 if __name__ == '__main__':
-    logger = get_mylogger()
+    logger = get_assistant_logger('assistant')
     logger.info('hello world')
