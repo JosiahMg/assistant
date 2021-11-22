@@ -24,14 +24,19 @@ import json
 import pandas as pd
 import re
 from pprint import pprint
+from tqdm import tqdm
+from tokenizers.jieba_tokenizer import JiebaTokenizer
+from utils.utils import is_equal
 
 
-def is_equal(a, b):
-    """比较两个结果是否相等
-    """
-    a = round(float(a), 6)
-    b = round(float(b), 6)
-    return a == b
+# TODO
+# 1. 数字分词时改成 1 2 3 ...
+# 2. question中的 20% -> 200/100
+# 3. answer: float类型
+
+
+tokenizer = JiebaTokenizer()
+
 
 
 def remove_bucket(equation):
@@ -56,12 +61,13 @@ def remove_bucket(equation):
     return equation.replace(' ', '')
 
 
-def load_data(filename):
+def load_data(origin_file, dest_file):
     """读取训练数据，并做一些标准化，保证equation是可以eval的
     参考：https://kexue.fm/archives/7809
     """
     df = pd.DataFrame(columns=['question', 'answer', 'equation'])
-    for l in open(filename, encoding='utf-8'):
+    count = 0
+    for l in tqdm(open(origin_file, encoding='utf-8').readlines()):
         l = json.loads(l)
         question, equation, answer = l['original_text'], l['equation'], l['ans']
         # 处理带分数
@@ -81,14 +87,27 @@ def load_data(filename):
         if equation[:2] == 'x=':
             equation = equation[2:]
         try:
-            if is_equal(eval(equation), eval(answer)):
+            answer = eval(answer)
+            if is_equal(eval(equation), answer):
+
+                if count%1000 == 0:
+                    df.to_csv(dest_file, mode=('a' if count else 'w'), encoding='utf-8',
+                              index=False, sep=',', header=(False if count else True))
+                    df.drop(df.index, inplace=True)
+
+                equation = remove_bucket(equation)
+                # equation = ' '.join(tokenizer.tokenize(equation, userdict=False, stopword=False, lower=False))
                 df_elem = {'question': question, 'answer': answer,
-                           'equation': remove_bucket(equation)}
+                           'equation': equation}
                 df = df.append([df_elem])
+                count += 1
         except:
             continue
-    df.to_csv(config.math_ape_path, encoding='utf-8', index=False, sep=',')
+    df.to_csv(dest_file, encoding='utf-8',  mode='a', sep=',', index=False, header=False)
     return df
 
 
-pprint(load_data(config.json_math_test_path))
+# pprint()
+load_data(config.origin_math_ape_train_path, config.mid_math_ape_train_path)
+load_data(config.origin_math_ape_test_path, config.mid_math_ape_test_path)
+load_data(config.origin_math_ape_valid_path, config.mid_math_ape_valid_path)

@@ -3,6 +3,9 @@ import jieba
 
 
 class JiebaTokenizer:
+    """
+    jieba分词器
+    """
     stopword_path = config.stopword_path
     userdict_path = config.userdict_path
 
