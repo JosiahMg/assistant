@@ -3,3 +3,4 @@ corpus
 __pycache__/
 warehouse
 log.log
+log/assitant.log

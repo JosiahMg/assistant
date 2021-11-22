@@ -56,8 +56,9 @@ userdict_path = os.path.join(root_dir,'tokenizers/userdicts/userdict.txt')
 inverted_index_path = os.path.join(final_corpus_dir, 'inverted_index.json')
 
 
-# log.conf
+################# log #################
 log_conf = os.path.join(root_dir, 'log/log.conf')
+log_file = os.path.join(root_dir, 'log/assitant.log')
 
 
 ################# 小黄鸡 #################
@@ -112,7 +113,7 @@ math_hidden_size = 512
 math_batch_first = True
 math_bidirection = True
 
-math_retrain = True
+math_retrain = False
 math_beam_search = False
 math_beam_width = 3
 

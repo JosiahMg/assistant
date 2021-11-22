@@ -1,3 +1,5 @@
+from log.log import make_log
 
-
-print('112' == '112 ')
+logger = make_log()
+a = 1
+logger.info(f'Eval accuarcy: {a}')

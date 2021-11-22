@@ -11,8 +11,9 @@ from tokenizers.space_tokenizer import SpaceTokenizer
 import os
 from pprint import pprint
 from utils.utils import is_equal
+from log.log import make_log
 
-
+logger = make_log()
 que_vocab = Vocab().load_vocab(config.math_vocab_question_path)
 equ_vocab = Vocab().load_vocab(config.math_vocab_equation_path)
 
@@ -118,6 +119,8 @@ def train(epoch):
         if index % 100 == 0:
             bar.set_description('epoch: {}\tidx:{}\tloss:{:.4f}'.format(
                 epoch, index, loss.item()))
+            logger.info('epoch: {}\tidx:{}\tloss:{:.4f}'.format(
+                epoch, index, loss.item()))
             torch.save(seq2seq.state_dict(), config.math_model)
             torch.save(optimizer.state_dict(), config.math_opt)
 
@@ -147,7 +150,7 @@ def evaluate():
             except:
                 pass
     acc = correct_count / total_count
-    print(f'Eval accuarcy: {acc}')
+    logger.info(f'Eval accuarcy: {acc}')
     return acc
 
 
@@ -182,11 +185,11 @@ def predict():
 
 if __name__ == '__main__':
     if torch.cuda.is_available():
-        print('We will use the GPU:', torch.cuda.get_device_name(0))
+        logger.info('We will use the GPU:%s', torch.cuda.get_device_name(0))
     else:
-        print('No GPU available, using the CPU instead.')
+        logger.info('No GPU available, using the CPU instead.')
 
-    train_mode = False
+    train_mode = True
     if train_mode:
         for epoch in range(100):
             train(epoch)
