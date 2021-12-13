@@ -4,3 +4,6 @@ __pycache__/
 warehouse
 log.log
 log/assitant.log
+rasa/.rasa
+rasa/models
+rasa/story_graph.dot

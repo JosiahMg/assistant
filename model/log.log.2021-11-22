@@ -1,0 +1,114 @@
+2021-11-22 17:57:31|    INFO|math_seq2seq.py[:186]|We will use the GPU:GeForce GTX 1060 with Max-Q Design
+2021-11-22 18:06:14|    INFO|math_seq2seq.py[:188]|We will use the GPU:GeForce GTX 1060 with Max-Q Design
+2021-11-22 18:06:15|    INFO|math_seq2seq.py[:123]|epoch: 0	idx:0	loss:1.3138
+2021-11-22 19:46:17|    INFO|math_seq2seq.py[:188]|We will use the GPU:GeForce GTX 1060 with Max-Q Design
+2021-11-22 19:46:18|    INFO|math_seq2seq.py[:123]|epoch: 0	idx:0	loss:1.2788
+2021-11-22 19:47:50|    INFO|math_seq2seq.py[:123]|epoch: 0	idx:100	loss:2.3594
+2021-11-22 19:49:24|    INFO|math_seq2seq.py[:123]|epoch: 0	idx:200	loss:1.0493
+2021-11-22 19:50:57|    INFO|math_seq2seq.py[:123]|epoch: 0	idx:300	loss:1.1516
+2021-11-22 19:52:30|    INFO|math_seq2seq.py[:123]|epoch: 0	idx:400	loss:1.0337
+2021-11-22 19:54:03|    INFO|math_seq2seq.py[:123]|epoch: 0	idx:500	loss:1.1086
+2021-11-22 19:55:37|    INFO|math_seq2seq.py[:123]|epoch: 0	idx:600	loss:1.1792
+2021-11-22 19:57:10|    INFO|math_seq2seq.py[:123]|epoch: 0	idx:700	loss:1.1087
+2021-11-22 19:58:45|    INFO|math_seq2seq.py[:123]|epoch: 0	idx:800	loss:1.1338
+2021-11-22 20:00:18|    INFO|math_seq2seq.py[:123]|epoch: 0	idx:900	loss:2.1684
+2021-11-22 20:01:52|    INFO|math_seq2seq.py[:123]|epoch: 0	idx:1000	loss:2.1835
+2021-11-22 20:03:27|    INFO|math_seq2seq.py[:123]|epoch: 0	idx:1100	loss:0.9716
+2021-11-22 20:05:01|    INFO|math_seq2seq.py[:123]|epoch: 0	idx:1200	loss:1.1792
+2021-11-22 20:06:35|    INFO|math_seq2seq.py[:123]|epoch: 0	idx:1300	loss:1.9916
+2021-11-22 20:08:09|    INFO|math_seq2seq.py[:123]|epoch: 0	idx:1400	loss:2.0626
+2021-11-22 20:09:43|    INFO|math_seq2seq.py[:123]|epoch: 0	idx:1500	loss:1.0066
+2021-11-22 20:11:17|    INFO|math_seq2seq.py[:123]|epoch: 0	idx:1600	loss:1.3566
+2021-11-22 20:12:53|    INFO|math_seq2seq.py[:123]|epoch: 0	idx:1700	loss:1.1966
+2021-11-22 20:14:28|    INFO|math_seq2seq.py[:123]|epoch: 0	idx:1800	loss:1.0412
+2021-11-22 20:16:05|    INFO|math_seq2seq.py[:123]|epoch: 0	idx:1900	loss:1.3296
+2021-11-22 20:17:39|    INFO|math_seq2seq.py[:123]|epoch: 0	idx:2000	loss:1.1808
+2021-11-22 20:19:15|    INFO|math_seq2seq.py[:123]|epoch: 0	idx:2100	loss:1.1486
+2021-11-22 20:20:51|    INFO|math_seq2seq.py[:123]|epoch: 0	idx:2200	loss:1.1730
+2021-11-22 20:22:25|    INFO|math_seq2seq.py[:123]|epoch: 0	idx:2300	loss:2.4091
+2021-11-22 20:24:01|    INFO|math_seq2seq.py[:123]|epoch: 0	idx:2400	loss:1.0038
+2021-11-22 20:25:38|    INFO|math_seq2seq.py[:123]|epoch: 0	idx:2500	loss:1.1277
+2021-11-22 20:27:13|    INFO|math_seq2seq.py[:123]|epoch: 0	idx:2600	loss:2.3418
+2021-11-22 20:28:48|    INFO|math_seq2seq.py[:123]|epoch: 0	idx:2700	loss:1.1743
+2021-11-22 20:30:25|    INFO|math_seq2seq.py[:123]|epoch: 0	idx:2800	loss:2.4570
+2021-11-22 20:31:59|    INFO|math_seq2seq.py[:123]|epoch: 0	idx:2900	loss:1.1271
+2021-11-22 20:33:35|    INFO|math_seq2seq.py[:123]|epoch: 0	idx:3000	loss:1.1613
+2021-11-22 20:35:11|    INFO|math_seq2seq.py[:123]|epoch: 0	idx:3100	loss:1.0155
+2021-11-22 20:36:47|    INFO|math_seq2seq.py[:123]|epoch: 0	idx:3200	loss:1.1737
+2021-11-22 20:38:24|    INFO|math_seq2seq.py[:123]|epoch: 0	idx:3300	loss:1.1945
+2021-11-22 20:40:00|    INFO|math_seq2seq.py[:123]|epoch: 0	idx:3400	loss:2.4809
+2021-11-22 20:41:37|    INFO|math_seq2seq.py[:123]|epoch: 0	idx:3500	loss:2.5330
+2021-11-22 20:43:13|    INFO|math_seq2seq.py[:123]|epoch: 0	idx:3600	loss:2.0777
+2021-11-22 20:44:51|    INFO|math_seq2seq.py[:123]|epoch: 0	idx:3700	loss:1.1604
+2021-11-22 20:46:27|    INFO|math_seq2seq.py[:123]|epoch: 0	idx:3800	loss:0.9215
+2021-11-22 20:48:03|    INFO|math_seq2seq.py[:123]|epoch: 0	idx:3900	loss:1.2588
+2021-11-22 20:49:40|    INFO|math_seq2seq.py[:123]|epoch: 0	idx:4000	loss:1.3672
+2021-11-22 20:51:16|    INFO|math_seq2seq.py[:123]|epoch: 0	idx:4100	loss:1.2702
+2021-11-22 20:52:52|    INFO|math_seq2seq.py[:123]|epoch: 0	idx:4200	loss:1.0639
+2021-11-22 20:54:28|    INFO|math_seq2seq.py[:123]|epoch: 0	idx:4300	loss:1.3036
+2021-11-22 20:56:04|    INFO|math_seq2seq.py[:123]|epoch: 0	idx:4400	loss:0.9963
+2021-11-22 20:57:40|    INFO|math_seq2seq.py[:123]|epoch: 0	idx:4500	loss:2.3358
+2021-11-22 20:59:16|    INFO|math_seq2seq.py[:123]|epoch: 0	idx:4600	loss:2.5280
+2021-11-22 21:00:53|    INFO|math_seq2seq.py[:123]|epoch: 0	idx:4700	loss:0.9893
+2021-11-22 21:02:29|    INFO|math_seq2seq.py[:123]|epoch: 0	idx:4800	loss:2.3654
+2021-11-22 21:04:06|    INFO|math_seq2seq.py[:123]|epoch: 0	idx:4900	loss:1.1588
+2021-11-22 21:05:42|    INFO|math_seq2seq.py[:123]|epoch: 0	idx:5000	loss:2.5424
+2021-11-22 21:07:19|    INFO|math_seq2seq.py[:123]|epoch: 0	idx:5100	loss:1.0522
+2021-11-22 21:08:57|    INFO|math_seq2seq.py[:123]|epoch: 0	idx:5200	loss:1.0095
+2021-11-22 21:10:35|    INFO|math_seq2seq.py[:123]|epoch: 0	idx:5300	loss:1.1645
+2021-11-22 21:12:12|    INFO|math_seq2seq.py[:123]|epoch: 0	idx:5400	loss:2.4297
+2021-11-22 21:13:49|    INFO|math_seq2seq.py[:123]|epoch: 0	idx:5500	loss:1.3346
+2021-11-22 21:15:28|    INFO|math_seq2seq.py[:123]|epoch: 0	idx:5600	loss:1.1153
+2021-11-22 21:17:05|    INFO|math_seq2seq.py[:123]|epoch: 0	idx:5700	loss:1.9411
+2021-11-22 21:18:44|    INFO|math_seq2seq.py[:123]|epoch: 0	idx:5800	loss:1.0871
+2021-11-22 21:20:24|    INFO|math_seq2seq.py[:123]|epoch: 0	idx:5900	loss:1.0755
+2021-11-22 21:22:01|    INFO|math_seq2seq.py[:123]|epoch: 0	idx:6000	loss:1.0463
+2021-11-22 21:23:40|    INFO|math_seq2seq.py[:123]|epoch: 0	idx:6100	loss:1.1595
+2021-11-22 21:25:20|    INFO|math_seq2seq.py[:123]|epoch: 0	idx:6200	loss:1.1841
+2021-11-22 21:47:07|    INFO|math_seq2seq.py[:188]|We will use the GPU:GeForce GTX 1060 with Max-Q Design
+2021-11-22 21:47:53|    INFO|math_seq2seq.py[:153]|Eval accuarcy: 0.004400880176035207
+2021-11-22 21:48:40|    INFO|math_seq2seq.py[:153]|Eval accuarcy: 0.004400880176035207
+2021-11-22 21:49:27|    INFO|math_seq2seq.py[:153]|Eval accuarcy: 0.004400880176035207
+2021-11-22 21:50:13|    INFO|math_seq2seq.py[:153]|Eval accuarcy: 0.004400880176035207
+2021-11-22 21:50:59|    INFO|math_seq2seq.py[:153]|Eval accuarcy: 0.004400880176035207
+2021-11-22 21:51:46|    INFO|math_seq2seq.py[:153]|Eval accuarcy: 0.004400880176035207
+2021-11-22 21:52:33|    INFO|math_seq2seq.py[:153]|Eval accuarcy: 0.004400880176035207
+2021-11-22 21:53:19|    INFO|math_seq2seq.py[:153]|Eval accuarcy: 0.004400880176035207
+2021-11-22 21:54:06|    INFO|math_seq2seq.py[:153]|Eval accuarcy: 0.004400880176035207
+2021-11-22 21:54:53|    INFO|math_seq2seq.py[:153]|Eval accuarcy: 0.004400880176035207
+2021-11-22 21:55:59|    INFO|math_seq2seq.py[:189]|We will use the GPU:GeForce GTX 1060 with Max-Q Design
+2021-11-22 21:56:45|    INFO|math_seq2seq.py[:154]|Eval accuarcy: 0.0
+2021-11-22 21:58:06|    INFO|math_seq2seq.py[:189]|We will use the GPU:GeForce GTX 1060 with Max-Q Design
+2021-11-22 21:58:53|    INFO|math_seq2seq.py[:154]|Eval accuarcy: 0.0
+2021-11-22 21:59:07|    INFO|math_seq2seq.py[:189]|We will use the GPU:GeForce GTX 1060 with Max-Q Design
+2021-11-22 21:59:53|    INFO|math_seq2seq.py[:154]|Eval accuarcy: 0.0
+2021-11-22 22:00:40|    INFO|math_seq2seq.py[:154]|Eval accuarcy: 0.0
+2021-11-22 22:01:02|    INFO|math_seq2seq.py[:190]|We will use the GPU:GeForce GTX 1060 with Max-Q Design
+2021-11-22 22:02:11|    INFO|math_seq2seq.py[:190]|We will use the GPU:GeForce GTX 1060 with Max-Q Design
+2021-11-22 22:04:00|    INFO|math_seq2seq.py[:190]|We will use the GPU:GeForce GTX 1060 with Max-Q Design
+2021-11-22 22:04:46|    INFO|math_seq2seq.py[:155]|Eval accuarcy: 0.0
+2021-11-22 22:05:21|    INFO|math_seq2seq.py[:190]|We will use the GPU:GeForce GTX 1060 with Max-Q Design
+2021-11-22 22:14:47|    INFO|math_seq2seq.py[:155]|Eval accuarcy: 0.00020004000800160032
+2021-11-22 22:15:38|    INFO|math_seq2seq.py[:155]|Eval accuarcy: 0.00020004000800160032
+2021-11-22 22:16:29|    INFO|math_seq2seq.py[:155]|Eval accuarcy: 0.00020004000800160032
+2021-11-22 23:30:04|    INFO|math_seq2seq.py[:190]|We will use the GPU:GeForce GTX 1060 with Max-Q Design
+2021-11-22 23:30:06|    INFO|math_seq2seq.py[:123]|epoch: 0	idx:0	loss:1.0730
+2021-11-22 23:31:38|    INFO|math_seq2seq.py[:123]|epoch: 0	idx:100	loss:0.9344
+2021-11-22 23:33:13|    INFO|math_seq2seq.py[:123]|epoch: 0	idx:200	loss:0.9893
+2021-11-22 23:34:46|    INFO|math_seq2seq.py[:123]|epoch: 0	idx:300	loss:0.9850
+2021-11-22 23:36:20|    INFO|math_seq2seq.py[:123]|epoch: 0	idx:400	loss:2.2375
+2021-11-22 23:37:53|    INFO|math_seq2seq.py[:123]|epoch: 0	idx:500	loss:1.0261
+2021-11-22 23:39:26|    INFO|math_seq2seq.py[:123]|epoch: 0	idx:600	loss:1.0040
+2021-11-22 23:40:58|    INFO|math_seq2seq.py[:123]|epoch: 0	idx:700	loss:1.0242
+2021-11-22 23:42:32|    INFO|math_seq2seq.py[:123]|epoch: 0	idx:800	loss:1.2444
+2021-11-22 23:44:05|    INFO|math_seq2seq.py[:123]|epoch: 0	idx:900	loss:0.9677
+2021-11-22 23:45:40|    INFO|math_seq2seq.py[:123]|epoch: 0	idx:1000	loss:1.2259
+2021-11-22 23:47:14|    INFO|math_seq2seq.py[:123]|epoch: 0	idx:1100	loss:0.9469
+2021-11-22 23:48:49|    INFO|math_seq2seq.py[:123]|epoch: 0	idx:1200	loss:2.4027
+2021-11-22 23:50:22|    INFO|math_seq2seq.py[:123]|epoch: 0	idx:1300	loss:2.1525
+2021-11-22 23:51:54|    INFO|math_seq2seq.py[:123]|epoch: 0	idx:1400	loss:1.1726
+2021-11-22 23:53:28|    INFO|math_seq2seq.py[:123]|epoch: 0	idx:1500	loss:1.0526
+2021-11-22 23:55:02|    INFO|math_seq2seq.py[:123]|epoch: 0	idx:1600	loss:1.1008
+2021-11-22 23:56:36|    INFO|math_seq2seq.py[:123]|epoch: 0	idx:1700	loss:1.0949
+2021-11-22 23:58:10|    INFO|math_seq2seq.py[:123]|epoch: 0	idx:1800	loss:2.3749
+2021-11-22 23:59:42|    INFO|math_seq2seq.py[:123]|epoch: 0	idx:1900	loss:0.8495

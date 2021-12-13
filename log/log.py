@@ -46,8 +46,9 @@ def make_log():
 
 
 logger = make_log()
-logger_conf = get_assistant_logger('assistant')
+
 
 if __name__ == '__main__':
+    logger_conf = get_assistant_logger('assistant')
     logger_conf.info('hello world')
     logger.info('hello world')

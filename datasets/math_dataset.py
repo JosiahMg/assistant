@@ -51,7 +51,7 @@ def collate_fn(batch):
     return ques, equs, ans, ques_len, ans_len
 
 
-trian_dataset = MathDataset(config.mid_math_ape_train_path)
+trian_dataset = MathDataset(config.mid_math_ape_valid_path)
 trian_dataloader = DataLoader(trian_dataset, batch_size=config.math_batch_size, shuffle=True, collate_fn=collate_fn)
 
 valid_dataset = MathDataset(config.mid_math_ape_valid_path)

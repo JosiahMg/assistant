@@ -58,7 +58,7 @@ inverted_index_path = os.path.join(final_corpus_dir, 'inverted_index.json')
 
 ################# log #################
 log_conf = os.path.join(root_dir, 'log/log.conf')
-log_file = os.path.join(root_dir, 'log/assitant.log')
+log_file = os.path.join(root_dir, 'log/assistant.log')
 
 
 ################# 小黄鸡 #################

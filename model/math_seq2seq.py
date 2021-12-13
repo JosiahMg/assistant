@@ -11,9 +11,9 @@ from tokenizers.space_tokenizer import SpaceTokenizer
 import os
 from pprint import pprint
 from utils.utils import is_equal
-from log.log import make_log
+from log.log import logger
 
-logger = make_log()
+
 que_vocab = Vocab().load_vocab(config.math_vocab_question_path)
 equ_vocab = Vocab().load_vocab(config.math_vocab_equation_path)
 
@@ -127,6 +127,7 @@ def train(epoch):
 
 # 评估模型， 每个epoch结束后执行
 def evaluate():
+    # seq2seq.load_state_dict(torch.load(config.math_model))
     seq2seq.eval()
     total_count = 0
     correct_count = 0
@@ -145,10 +146,12 @@ def evaluate():
             outputs = equ_vocab.inverse_transform(elem)
             outputs = ''.join(outputs)
             try:
-                if is_equal(eval(outputs), ans[i]):
+                # if is_equal(eval(outputs), ans[i]):
+                target_inverse = ''.join(equ_vocab.inverse_transform(target[i].numpy()))
+                if outputs == target_inverse:
                     correct_count += 1
-            except:
-                pass
+            except Exception as e:
+                print(e.args)
     acc = correct_count / total_count
     logger.info(f'Eval accuarcy: {acc}')
     return acc
@@ -191,7 +194,7 @@ if __name__ == '__main__':
 
     train_mode = True
     if train_mode:
-        for epoch in range(100):
+        for epoch in range(20):
             train(epoch)
             evaluate()
     else:
