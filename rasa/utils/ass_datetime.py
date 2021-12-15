@@ -1,5 +1,7 @@
 from datetime import date, datetime, timedelta
 import time
+import arrow
+import dateparser
 
 def get_date_by_entity(inquire_date=None):
     '''
@@ -47,21 +49,115 @@ def get_date_by_value(value, mode='datetime'):
     elif isinstance(value, dict):
         date_from = get_datetime(value['from'])
         date_to = get_datetime(value['to'])
-        print('date_from', date_from)
-        print('date_to', date_to)
-        print('datetime.today()', datetime.today())
-        if date_from.day == datetime.today().day + 1:
-            inquire_date =  date_to
-        else:
+        if date_from < datetime.today():  # n天前
             inquire_date =  date_from
+        else:
+            inquire_date =  date_to
     else:
         return datetime.now().strftime(fmt_res)
     
     return inquire_date.strftime(fmt_res)
 
-def get_localtime():
-    tm = time.localtime()
-    return f'{tm.tm_hour:02d}:{tm.tm_min:02d}:{tm.tm_sec:02d}'
+city_db = {
+    '伦敦': 'Europe/Dublin',
+    '里斯本': 'Europe/Lisbon',
+    '阿姆斯特丹': 'Europe/Amsterdam',
+    '西雅图': 'US/Pacific',
+    '上海': 'Asia/Shanghai',
+    '纽约': 'America/New_York',
+    '曼谷': 'Asia/Bangkok',
+    '平壤': 'Asia/Pyongyang',
+    '首尔': 'Asia/Seoul',
+    '新加坡': 'Asia/Singapore',
+    '台北': 'Asia/Taipei',
+    '东京': 'Asia/Tokyo',
+    '悉尼': 'Australia/Sydney',
+    '雅典': 'Europe/Athens',
+    '柏林': 'Europe/Berlin',
+    '布鲁塞尔': 'Europe/Brussels',
+    '罗马': 'Europe/Rome',
+    '苏黎世': 'Europe/Zurich',
+    '复活节岛': 'Chile/EasterIsland',
+    '华沙': 'Europe/Warsaw',
+    '巴黎': 'Europe/Paris',
+    '布拉格': 'Europe/Prague',
+    '马德里': 'Europe/Madrid',
+    '太平洋': 'US/Pacific'
+}
+
+chinese_city = ['中国', '北京', '武汉', '上海', '沈阳', '重庆', '深圳', '广州', '杭州', '南京', '香港', '哈尔滨', '合肥', '宁波']
+
+def get_time_by_entity(entity_place):
+    '''
+    function: 根据地区或国家名获取当地时间
+    input: str 地区或国家名
+    output: string
+    '''
+    print('entity is ', entity_place)
+    if entity_place in chinese_city:  # 中国的城市统一到上海时间
+        zone_area = city_db.get('上海')
+    else:
+        zone_area = city_db.get(entity_place, None)  # 国外城市查询zone_area
+    if not zone_area:
+        msg = f'非常抱歉，目前不支持{entity_place}地区的时间查询。'
+    else:
+        utc = arrow.utcnow()
+        print(zone_area)
+        area_time = utc.to(zone_area).format('YYYY-MM-DD HH:mm:ss dddd')
+        msg = f"{entity_place}现在是 {area_time}"
+    return msg
+
+
+def get_time_by_value(value, mode='datetime'):
+    '''
+    function: 字符串类型时间转datetime格式
+    input: string  "2021-03-02T00:00:00.000+08:00"
+    output: datetime
+    '''
+    if mode == 'datetime':
+        fmt_res = '%Y-%m-%d %H:%M:%S %A'
+    elif mode == 'date':
+        fmt_res = '%Y-%m-%d'
+    
+    if isinstance(value, str):
+        inquire_date = get_datetime(value)
+    elif isinstance(value, dict):
+        date_from = get_datetime(value['from'])
+        date_to = get_datetime(value['to'])
+
+        if date_from < datetime.now():  # n天前
+            inquire_date =  date_from
+        else:
+            inquire_date =  date_to
+    else:
+        return datetime.now().strftime(fmt_res)
+    
+    return inquire_date.strftime(fmt_res)
+
+
+def get_place_time_different(place_list):
+    if len(place_list) != 2:
+        msg = f'您只提供了一个地理位置，无法进行时间差异的比较。'
+    else:
+        place1 =  city_db.get(place_list[0], None)
+        place2 =  city_db.get(place_list[1], None)
+        if place1 and place2:
+            t1 = arrow.utcnow().to(place1)
+            print(t1)
+            t2 = arrow.utcnow().to(place2)
+            print(t2)
+            max_t, min_t = max(t1, t2), min(t1, t2)
+            diff_seconds = dateparser.parse(str(max_t)[:19]) - dateparser.parse(str(min_t)[:19])
+            print(int(diff_seconds.seconds/3600))
+            diff_hours = int(diff_seconds.seconds/3600)
+            if t1 <= t2:
+                msg = f"{place_list[0]}比{place_list[1]}晚{min(diff_hours, 24-diff_hours)}小时。"
+            else:
+                msg = f"{place_list[1]}比{place_list[0]}晚{min(diff_hours, 24-diff_hours)}小时。"
+        else:
+            msg = f'目前查询不到您所说的地理位置的时间'
+
+    return msg
 
 if __name__ == '__main__':
     print(get_date_by_value(None))

@@ -7,16 +7,19 @@ intents:
   - inquire_time
   - bot_challenge
   - date_different
+  - time_different
 
 entities:
   - alien_date
   - alien_time
   - time
+  - place
 
 actions:
   - action_tell_date
   - action_tell_time
   - action_date_different
+  - action_time_different
 
 responses:
   utter_greet:

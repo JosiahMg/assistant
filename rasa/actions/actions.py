@@ -70,7 +70,6 @@ class ActionDateDifferent(Action):
 
 
 class ActionTellTime(Action):
-    #TODO: 不同时区的时间  半小时的时间...
     def name(self) -> Text:
         return "action_tell_time"
 
@@ -78,7 +77,32 @@ class ActionTellTime(Action):
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
-        dispatcher.utter_message(text=ass_datetime.get_time())
+        # 首先判断是否有DIETClassifier识别出Place实体 
+        entity_local = next(tracker.get_latest_entity_values("place"), None)
+        print('entity_local:', entity_local)
+        if entity_local:
+            dispatcher.utter_message(text=ass_datetime.get_time_by_entity(entity_local))
+        else:
+            value_date = next(tracker.get_latest_entity_values("time"), None)  # DucklingEntityExtractor
+            
+            dispatcher.utter_message(text=ass_datetime.get_time_by_value(value_date))
 
         return []
 
+
+class ActionTimeDifferent(Action):
+    def name(self) -> Text:
+        return "action_time_different"
+    
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        
+        place_list = []
+        
+        for dt in tracker.get_latest_entity_values("place"):
+            place_list.append(dt)
+
+        dispatcher.utter_message(text=ass_datetime.get_place_time_different(place_list))
+        
+        return []

@@ -25,6 +25,10 @@ pipeline:
     locale: "zh_ZH"
     timezone: "Asia/Shanghai"
     timeout : 3
+  - name: RegexEntityExtractor
+    case_sensitive: False
+    use_lookup_tables: True
+    use_regexes: True
   - name: DIETClassifier
     epochs: 100
     constrain_similarities: true
