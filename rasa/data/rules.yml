@@ -11,12 +11,17 @@ rules:
   - intent: bot_challenge
   - action: utter_iamabot
 
-- rule: Tell the time
-  steps:
-  - intent: inquire_time
-  - action: action_tell_time
-
 - rule: Tell the date
   steps:
   - intent: inquire_date
   - action: action_tell_date
+
+- rule: Tell the date_different
+  steps:
+  - intent: date_different
+  - action: action_date_different
+
+- rule: Tell the time
+  steps:
+  - intent: inquire_time
+  - action: action_tell_time

@@ -6,33 +6,30 @@ intents:
   - inquire_date
   - inquire_time
   - bot_challenge
+  - date_different
 
 entities:
-  - date
+  - alien_date
+  - alien_time
+  - time
 
 actions:
   - action_tell_date
   - action_tell_time
+  - action_date_different
 
 responses:
   utter_greet:
-  - text: "Hey! How are you?"
-
-  utter_cheer_up:
-  - text: "Here is something to cheer you up:"
-    image: "https://i.imgur.com/nGF1K8f.jpg"
-
-  utter_did_that_help:
-  - text: "Did that help you?"
-
-  utter_happy:
-  - text: "Great, carry on!"
+  - text: "嗨，你好啊!"
 
   utter_goodbye:
-  - text: "Bye"
+  - text: "再见"
 
   utter_iamabot:
-  - text: "I am a bot, powered by Rasa."
+  - text: "我是机器人"
+
+  utter_un_come_true:
+  - text: "目前无法解答您的问题，我要抓紧去学习了"
 
 session_config:
   session_expiration_time: 60
