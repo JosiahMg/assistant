@@ -29,6 +29,7 @@ pipeline:
     case_sensitive: False
     use_lookup_tables: True
     use_regexes: True
+    use_word_boundaries: False  # 中文必须设置为False
   - name: DIETClassifier
     epochs: 100
     constrain_similarities: true
