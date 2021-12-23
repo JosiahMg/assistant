@@ -1,0 +1,7 @@
+tests/*
+models/*
+actions/*
+utils/*
+**/*.md
+.rasa
+story_graph.dot

@@ -19,7 +19,8 @@ pipeline:
     min_ngram: 1
     max_ngram: 4
   - name: "DucklingEntityExtractor"
-    url: "http://localhost:8000"
+    # "docker run -p 8000:8000 rasa/duckling"   to run server
+    url: "http://81.68.107.188:8000"
     dimensions: ["time"]
     # dimensions: ["time", "number", "amount-of-money", "distance"]
     locale: "zh_ZH"
