@@ -1,6 +1,6 @@
 # 开启web服务:
 ```shell
-python manage.py runserver
+python manage.py runserver 0.0.0.0:8000
 ```
 # 访问web: 
 [http://localhost:8000/app/](http://localhost:8000/app/)
