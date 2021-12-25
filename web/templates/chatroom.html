@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet"
+        href="https://npm-scalableminds.s3.eu-central-1.amazonaws.com/@scalableminds/chatroom@master/dist/Chatroom.css" />
+</head>
+
+<body>
+    <div class="chat-container"></div>
+
+    <script
+        src="https://npm-scalableminds.s3.eu-central-1.amazonaws.com/@scalableminds/chatroom@master/dist/Chatroom.js" />
+    </script>
+    <script type="text/javascript">
+        var chatroom = new window.Chatroom({
+            host: "http://localhost:5005",
+            title: "个人助手",
+            container: document.querySelector(".chat-container"),
+            welcomeMessage: "您好，目前支持时间、天气相关的问题查询功能，您可以询问 北京和纽约相差几个小时 等问题",
+            speechRecognition: "zh-CN",
+            voiceLang: "zh-CN"
+        });
+        chatroom.openChat();
+    </script>
+</body>
+
+</html>
