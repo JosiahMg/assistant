@@ -1,4 +1,11 @@
+# 说明
+
+**本项目会加载网络上的JS文件，需要VPN访问权限**
+
+
+
 # 开启web服务:
+
 ```shell
 python manage.py runserver 0.0.0.0:8000
 ```
