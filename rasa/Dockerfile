@@ -9,7 +9,8 @@ COPY . .
 RUN rasa train
 
 # set the user to run, don't run as root
-USER 1001
+# 修改非root权限，可以防止修改/app中的内容， 因为我们需要rasa train必须使用root权限，注释下面的代码
+# USER 1001
 
 # set entrypoint for interactive shells
 ENTRYPOINT ["rasa"]
